@@ -9,12 +9,8 @@ Q - Quit"""
 
 
 def main():
-    display_menu()
-    get_choice()
-
-
-def display_menu():
     print(MENU)
+    get_choice()
 
 
 def get_choice():
