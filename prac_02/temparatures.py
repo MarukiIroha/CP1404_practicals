@@ -3,6 +3,7 @@ CP1404/CP5632 - Practical
 Pseudocode for temperature conversion
 """
 #Constant
+VALID_CHOICE = 'QCF'
 MENU = """C - Convert Celsius to Fahrenheit
 F - Convert Fahrenheit to Celsius
 Q - Quit"""
@@ -10,28 +11,38 @@ Q - Quit"""
 
 def main():
     print(MENU)
-    get_choice()
-
-
-def get_choice():
-    choice = input(">>> ").upper()
+    choice = get_valid_choice()
     while choice != "Q":
         if choice == "C":
-            celsius = float(input("Celsius: "))
-            fahrenheit = celsius * 9.0 / 5 + 32
+            fahrenheit = transfer_to_fahrenheit()
             print(f"Result: {fahrenheit:.2f} F")
         elif choice == "F":
-            fahrenheit = float(input("Fahrenheit: "))
-            celsius = 5 / 9 * (fahrenheit - 32)
+            celsius = transfer_to_celsius()
             print(f"Result: {celsius:.2f} F")
-            # TODO: Write this section to convert F to C and display the result
-            # Hint: celsius = 5 / 9 * (fahrenheit - 32)
-            # Remove the "pass" statement when you are done. It's a placeholder.
-        else:
-            print("Invalid option")
         print(MENU)
         choice = input(">>> ").upper()
-        print("Thank you.")
+    print("Thank you.")
+
+
+def transfer_to_celsius():
+    fahrenheit = float(input("Fahrenheit: "))
+    celsius = 5 / 9 * (fahrenheit - 32)
+    return celsius
+
+
+def transfer_to_fahrenheit():
+    celsius = float(input("Celsius: "))
+    fahrenheit = celsius * 9.0 / 5 + 32
+    return fahrenheit
+
+
+
+def get_valid_choice():
+    choice = input(">>> ").upper()
+    while choice not in VALID_CHOICE:
+        print("Invalid option")
+        choice = input(">>> ").upper()
+    return choice
 
 
 main()
