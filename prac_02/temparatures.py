@@ -36,7 +36,6 @@ def transfer_to_fahrenheit():
     return fahrenheit
 
 
-
 def get_valid_choice():
     choice = input(">>> ").upper()
     while choice not in VALID_CHOICE:
