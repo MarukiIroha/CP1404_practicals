@@ -2,13 +2,14 @@
 CP1404/CP5632 Practical
 Data file -> lists program
 """
-
+list_of_data = []
 FILENAME = "subject_data.txt"
 
 
 def main():
-    data = get_data()
-    print(data)
+    data_from_list = get_data()
+    for data in data_from_list:
+        print(f"{data[0]} is taught by {data[1]} and has {data[2]} students")
 
 
 def get_data():
@@ -22,8 +23,11 @@ def get_data():
         print(parts)  # See what the parts look like (notice the integer is a string)
         parts[2] = int(parts[2])  # Make the number an integer (ignore PyCharm's warning)
         print(parts)  # See if that worked
+        list_of_data.append(parts)
         print("----------")
     input_file.close()
+    return list_of_data
+
 
 
 main()
