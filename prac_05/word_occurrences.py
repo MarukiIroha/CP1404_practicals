@@ -12,5 +12,4 @@ for i in total_words:
     if len(i) > max_length:
         max_length = len(i)
 for key in sorted(total_words):
-    thing, width, other_thing = key, max_length, total_words[key]
-    print(f"{thing:{width}} : {other_thing}")
+    print(f"{key:{max_length}} : {total_words[key]}")

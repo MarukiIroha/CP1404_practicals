@@ -19,3 +19,6 @@ class Guitar:
 
     def __lt__(self, other):
         return self.year < other.year
+
+    def __iter__(self):
+        return iter([self.name, self.year, self.cost])
