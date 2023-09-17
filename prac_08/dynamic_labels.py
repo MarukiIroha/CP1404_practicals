@@ -1,13 +1,11 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.label import Label
-from kivy.properties import StringProperty
 NEW_COLOUR = (1, 0, 0, 1)  # RGBA for red
 ALTERNATIVE_COLOUR = (1, 0, 1, 1)  # RGBA for magenta
 
 
 class DynamicWidgetsApp(App):
-    status_text = StringProperty()
 
     def __init__(self, **kwargs):
         """Construct main app."""
